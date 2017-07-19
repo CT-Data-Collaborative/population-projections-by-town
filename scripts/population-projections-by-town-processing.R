@@ -294,8 +294,8 @@ total_pop_proj_long_fips <- total_pop_proj_long_fips %>%
 
 
 write.table(
-  total_pop_proj,
-  file.path(getwd(), "data", "total_pop_proj4.csv"),
+  total_pop_proj_long_fips,
+  file.path(getwd(), "data", "population_projections_by_town_2017.csv"),
   sep = ",",
   row.names = F
 )
