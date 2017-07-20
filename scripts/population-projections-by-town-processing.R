@@ -198,12 +198,12 @@ for (i in 1:length(male_25_cols)) {
 match_15 <- c("2015", "Total", "years")
 total_15_age_cols <- (which(Reduce(`&`, lapply(match_15, grepl, colnames(total_pop_proj)))))
 
-test <- total_pop_proj[,total_15_age_cols]
+#test <- total_pop_proj[,total_15_age_cols]
 
 for (i in 1:length(total_15_age_cols)) {
   col_label <- paste0("Percent ", names(total_pop_proj[total_15_age_cols[i]]))
   which_total_col <- paste0(match_15[1], " Total")
-  #total_val <- as.numeric(total_pop_proj[, which_total_col])
+  #total_val <- as.numeric(total_pop_proj[, which_total_col])[which(total_pop_proj$Town == "Connecticut")]
   total_pop_proj[, col_label] <- NA
   total_pop_proj[, col_label] <- round((total_pop_proj[[total_15_age_cols[i]]] / total_pop_proj[, which_total_col])*100, 2)
 }
@@ -213,7 +213,7 @@ total_20_age_cols <- (which(Reduce(`&`, lapply(match_20, grepl, colnames(total_p
 for (i in 1:length(total_20_age_cols)) {
   col_label <- paste0("Percent ", names(total_pop_proj[total_20_age_cols[i]]))
   which_total_col <- paste0(match_20[1], " Total")
-  #total_val <- as.numeric(total_pop_proj[, which_total_col])
+  #total_val <- as.numeric(total_pop_proj[, which_total_col])[which(total_pop_proj$Town == "Connecticut")]
   total_pop_proj[, col_label] <- NA
   total_pop_proj[, col_label] <- round((total_pop_proj[[total_20_age_cols[i]]] / total_pop_proj[, which_total_col])*100, 2)
 }
@@ -224,7 +224,7 @@ total_25_age_cols <- (which(Reduce(`&`, lapply(match_25, grepl, colnames(total_p
 for (i in 1:length(total_25_age_cols)) {
   col_label <- paste0("Percent ", names(total_pop_proj[total_25_age_cols[i]]))
   which_total_col <- paste0(match_25[1], " Total")
-  #total_val <- as.numeric(total_pop_proj[, which_total_col])
+  #total_val <- as.numeric(total_pop_proj[, which_total_col])[which(total_pop_proj$Town == "Connecticut")]
   total_pop_proj[, col_label] <- NA
   total_pop_proj[, col_label] <- round((total_pop_proj[[total_25_age_cols[i]]] / total_pop_proj[, which_total_col])*100, 2)
 }
