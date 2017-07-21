@@ -146,7 +146,7 @@
     },    
     "denominator": {
       "ckan_name": "Denominator",
-      "value": "'Total Projected Population for that geography' is used for individual Genders and Age Cohorts. 'Total Projected Population of the state' is used for All Genders and Total Age Cohorts.",
+      "value": "'Total Projected Population for a given geography' is used to calculate percentages for individual Gender and Age Cohort groups. 'Total Projected Population of the state' is used to calculate percentages for All Gender totals and total Age Cohorts.",
       "type": "string"
     },       
     "geography": {
