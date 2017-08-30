@@ -21,7 +21,7 @@
   }],
   "contributor": [],
   "resources": [{
-    "path": "data/population_projections_by_town_2017.csv",
+    "path": "data/population_projections_by_town_2017_unofficial.csv",
     "format": "csv",
     "schema": {
       "fields": [{
@@ -71,8 +71,7 @@
               "70 to 74 years", 
               "75 to 79 years", 
               "80 to 84 years", 
-              "85 to 89 years", 
-              "90 years and Over"
+              "85 years and Over"
             ]
           }           
         }, {             
@@ -102,7 +101,7 @@
       }
     }
   ],
-  "last_modified": "07/19/2017",
+  "last_modified": "08/30/2017",
   "ckan_extras": {
     "full_description": {
       "ckan_name": "Full Description",
@@ -162,12 +161,12 @@
     },
     "years_in_catalog": {
       "ckan_name": "Years in Catalog",
-      "value": ["2015", "2020", "2025"],
+      "value": ["2015", "2020", "2025", "2030", "2035", "2040"],
       "type": "array"
     },
     "latest_year": {
       "ckan_name": "Latest Year Available",
-      "value": "2025",
+      "value": "2040",
       "type": "string"
     },
     "disabled_views": {
@@ -193,7 +192,7 @@
       "value": {
         "Town": "Hartford",
         "Measure Type": "Number",
-        "Year": ["2025"],
+        "Year": ["2040"],
         "Variable": ["Projected Population"], 
         "Age Cohort": ["Total"], 
         "Gender": ["All", "Male", "Female"]
@@ -205,51 +204,99 @@
     {
       "type": "$lookup",
       "filter": {
-        "Town": "Hartford",
+        "Town": "Andover",
         "Year": "2015",
         "Variable": "Projected Population",
-        "Gender": "All",	
+        "Gender": "Male",	
         "Age Cohort": "Total",	
         "Measure Type": "Number"
       },
       "expected": {
         "type": "$match",
         "number type": "int",
-        "value": 125999
+        "value": 1654
       }
-    },   
+    },  
     {
       "type": "$lookup",
       "filter": {
-        "Town": "Greenwich",
+        "Town": "West Hartford",
         "Year": "2020",
         "Variable": "Projected Population",
         "Gender": "Male",	
-        "Age Cohort": "20 to 24 years",	
+        "Age Cohort": "0 to 4 years",	
         "Measure Type": "Percent"
       },
       "expected": {
         "type": "$match",
         "number type": "float",
-        "value": 7.57
+        "value": 5.63
+      }
+    }, 
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Bolton",
+        "Year": "2025",
+        "Variable": "Projected Population",
+        "Gender": "Female",	
+        "Age Cohort": "Total",	
+        "Measure Type":  "Number"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 2240
+      }
+    },  
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Hartford",
+        "Year": "2030",
+        "Variable": "Projected Population",
+        "Gender": "Female",	
+        "Age Cohort": "25 to 29 years",	
+        "Measure Type": "Percent"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 7.45
+      }
+    },  
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Connecticut",
+        "Year": "2035",
+        "Variable": "Projected Population",
+        "Gender": "All",	
+        "Age Cohort": "Total",	
+        "Measure Type":  "Number"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 3645390
       }
     },   
     {
       "type": "$lookup",
       "filter": {
-        "Town": "Andover",
-        "Year": "2025",
+        "Town": "Middlefield",
+        "Year": "2040",
         "Variable": "Projected Population",
-        "Gender": "Female",	
-        "Age Cohort": "65 to 69 years",	
-        "Measure Type": "Number"
+        "Gender": "All",	
+        "Age Cohort": "75 to 79 years",	
+        "Measure Type": "Percent"
       },
       "expected": {
         "type": "$match",
-        "number type": "int",
-        "value": 178
+        "number type": "float",
+        "value": 4.98
       }
-    }       
+    } 
   ],
   "dimension_groups": [
     {"Gender": ["All", "Male", "Female"],
@@ -257,7 +304,7 @@
      "Age Cohort": ["Total", "0 to 4 years", "5 to 9 years", "10 to 14 years", "15 to 19 years", 
                     "20 to 24 years", "25 to 29 years", "30 to 34 years", "35 to 39 years", "40 to 44 years", 
                     "45 to 49 years", "50 to 54 years", "55 to 59 years", "60 to 64 years", "65 to 69 years", 
-                    "70 to 74 years", "75 to 79 years", "80 to 84 years", "85 to 89 years", "90 years and Over"]
+                    "70 to 74 years", "75 to 79 years", "80 to 84 years", "85 years and Over"]
     }
   ]
 }

@@ -1,0 +1,310 @@
+{
+  "name": "population-projections-by-town",
+  "datapackage_version": "1.0-beta.18",
+  "title": "Population Projections by Town",
+  "description": "Population Projections by Town reports the projected population of Connecticut, disaggregated by town, gender and age cohort, in 5-year intervals.",
+  "version": "1.0",
+  "licenses": [{
+    "url": "http://opendatacommons.org/licenses/pddl/",
+    "name": "Open Data Commons Public Domain",
+    "version": "1.0",
+    "id": "odc-pddl"
+  }],
+  "sources": [{
+    "name": "uscensus",
+    "web": ""
+  }],
+  "author":[{
+    "name": "Jenna Daly",
+    "email": "jdaly@ctdata.org",
+    "web": "http://ctdata.org"
+  }],
+  "contributor": [],
+  "resources": [{
+    "path": "data/population_projections_by_town_2017_unofficial.csv",
+    "format": "csv",
+    "schema": {
+      "fields": [{
+          "name": "Town",
+          "type": "string",
+          "dimension": false
+        }, {
+          "name": "FIPS",
+          "type": "string",
+          "dimension": false
+        }, {
+          "name": "Year",
+          "type": "string",
+          "dimension": false
+        }, {
+        "name": "Gender",
+          "type": "string",
+          "dimension": true, 
+          "constraints": {
+            "enum": [
+              "All", 
+              "Male", 
+              "Female"
+            ]
+          }           
+        }, {    
+        "name": "Age Cohort",
+          "type": "string",
+          "dimension": true, 
+          "constraints": {
+            "enum": [
+              "Total", 
+              "0 to 4 years", 
+              "5 to 9 years", 
+              "10 to 14 years", 
+              "15 to 19 years", 
+              "20 to 24 years", 
+              "25 to 29 years",
+              "30 to 34 years", 
+              "35 to 39 years", 
+              "40 to 44 years", 
+              "45 to 49 years", 
+              "50 to 54 years", 
+              "55 to 59 years", 
+              "60 to 64 years", 
+              "65 to 69 years", 
+              "70 to 74 years", 
+              "75 to 79 years", 
+              "80 to 84 years", 
+              "85 years and Over"
+            ]
+          }           
+        }, {             
+        "name": "Measure Type",
+          "type": "string",
+          "dimension": true, 
+          "constraints": {
+            "enum": [
+              "Number", 
+              "Percent"
+            ]
+          }           
+        }, {
+          "name": "Variable",
+          "type": "string",
+          "dimension": true, 
+          "constraints": {
+            "enum": [
+              "Projected Population"
+            ]
+          }           
+        }, {
+          "name": "Value",
+          "type": "number",
+          "dimension": false
+        }]
+      }
+    }
+  ],
+  "last_modified": "08/30/2017",
+  "ckan_extras": {
+    "full_description": {
+      "ckan_name": "Full Description",
+      "value": "These projections are created based upon several datasets and while these estimates are developed based on multiple data sources, actual population changes may vary from these projections. These population projections have been developed based on state and locally derived fertility rates. The Connecticut State Data Center produces a separate projection for the State level and Town level, thus the towns do not add up to the state totals as the State totals are based on a different life table.",
+      "type": "string"
+    },
+    "suppression": {
+      "ckan_name": "Suppression",
+      "value": "",
+      "type": "string"
+    },
+    "technical_notes": {
+      "ckan_name": "Technical Notes",
+      "value": "",
+      "type": "string"
+    },
+    "socrata": {
+      "ckan_name": "Socrata",
+      "value": "False",
+      "type": "string"
+    },
+    "socrata_url": {
+      "ckan_name": "Socrata Dataset URL",
+      "value": "",
+      "type": "string"
+    },
+    "domain": {
+      "ckan_name": "Domain",
+      "value": "Demographics",
+      "type": "string"
+    },
+    "subdomain": {
+      "ckan_name": "Subdomain",
+      "value": "Population",
+      "type": "string"
+    },
+    "numerator": {
+      "ckan_name": "Numerator",
+      "value": "Projected Population disaggregated by Age Cohort and Gender",
+      "type": "string"
+    },    
+    "denominator": {
+      "ckan_name": "Denominator",
+      "value": "'Total Projected Population for a given geography' is used to calculate percentages for individual Gender and Age Cohort groups. 'Total Projected Population of the state' is used to calculate percentages for All Gender totals and total Age Cohorts.",
+      "type": "string"
+    },       
+    "geography": {
+      "ckan_name": "Geography",
+      "value": "Town",
+      "type": "string",
+      "constraints": {"enum": ["Town", "County", "Town/County", "District", "Other"]}
+    },
+    "frequency": {
+      "ckan_name": "Frequency",
+      "value": "Other",
+      "type": "string"
+    },
+    "years_in_catalog": {
+      "ckan_name": "Years in Catalog",
+      "value": ["2015", "2020", "2025", "2030", "2035", "2040"],
+      "type": "array"
+    },
+    "latest_year": {
+      "ckan_name": "Latest Year Available",
+      "value": "2040",
+      "type": "string"
+    },
+    "disabled_views": {
+      "ckan_name": "Disabled Views",
+      "value": [],
+      "type": "array",
+      "constraints": {"enum": ["map", "table", "bar", "line"]}
+    },
+    "units": {
+      "ckan_name": "Units",
+      "value": {
+        "Number": "",
+        "Percent": "%"
+      }
+    },
+    "expected_number_of_geographies": {
+      "ckan_name": "Expected Number of Unique Geographies",
+      "value": 170,
+      "type": "string"
+    },   
+    "default": {    
+      "ckan_name": "Default",
+      "value": {
+        "Town": "Hartford",
+        "Measure Type": "Number",
+        "Year": ["2040"],
+        "Variable": ["Projected Population"], 
+        "Age Cohort": ["Total"], 
+        "Gender": ["All", "Male", "Female"]
+      },
+      "type": "object"
+    }
+  }, 
+  "spot_checks": [
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Andover",
+        "Year": "2015",
+        "Variable": "Projected Population",
+        "Gender": "Male",	
+        "Age Cohort": "All",	
+        "Measure Type": "Number"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 1654
+      }
+    },  
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "West Hartford",
+        "Year": "2020",
+        "Variable": "Projected Population",
+        "Gender": "Male",	
+        "Age Cohort": "0 to 4 years",	
+        "Measure Type": "Percent"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 5.63
+      }
+    }, 
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Bolton",
+        "Year": "2025",
+        "Variable": "Projected Population",
+        "Gender": "Female",	
+        "Age Cohort": "All",	
+        "Measure Type":  "Number"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 2240
+      }
+    },  
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Hartford",
+        "Year": "2030",
+        "Variable": "Projected Population",
+        "Gender": "Female",	
+        "Age Cohort": "25 to 29 years",	
+        "Measure Type": "Percent"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "float",
+        "value": 7.45
+      }
+    },  
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Connecticut",
+        "Year": "2035",
+        "Variable": "Projected Population",
+        "Gender": "All",	
+        "Age Cohort": "All",	
+        "Measure Type":  "Number"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 3645390
+      }
+    },   
+    {
+      "type": "$lookup",
+      "filter": {
+        "Town": "Middlefield",
+        "Year": "2040",
+        "Variable": "Projected Population",
+        "Gender": "All",	
+        "Age Cohort": "75 to 79 years",	
+        "Measure Type": "Percent"
+      },
+      "expected": {
+        "type": "$match",
+        "number type": "int",
+        "value": 4.98
+      }
+    } 
+  ],
+  "dimension_groups": [
+    {"Gender": ["All", "Male", "Female"],
+     "Measure Type": ["Number", "Percent"],
+     "Age Cohort": ["Total", "0 to 4 years", "5 to 9 years", "10 to 14 years", "15 to 19 years", 
+                    "20 to 24 years", "25 to 29 years", "30 to 34 years", "35 to 39 years", "40 to 44 years", 
+                    "45 to 49 years", "50 to 54 years", "55 to 59 years", "60 to 64 years", "65 to 69 years", 
+                    "70 to 74 years", "75 to 79 years", "80 to 84 years", "85 years and Over"]
+    }
+  ]
+}
