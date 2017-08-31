@@ -249,7 +249,7 @@ total_projections_long_fips$Value <- round(total_projections_long_fips$Value, 2)
 
 write.table(
   total_projections_long_fips,
-  file.path(getwd(), "data", "population_projections_by_town_2017_unofficial.csv"),
+  file.path(getwd(), "data", "population_projections_by_town_2015-2040.csv"),
   sep = ",",
   row.names = F
 )

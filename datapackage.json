@@ -21,7 +21,7 @@
   }],
   "contributor": [],
   "resources": [{
-    "path": "data/population_projections_by_town_2017_unofficial.csv",
+    "path": "data/population_projections_by_town_2015-2040.csv",
     "format": "csv",
     "schema": {
       "fields": [{
