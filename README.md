@@ -4,7 +4,7 @@ Population Projections by Town
 
 Population Projections by Town reports the projected population of Connecticut, disaggregated by town, gender and age cohort, in 5-year intervals.
 
-Data Source: <http://ctsdc.uconn.edu/2015_2040_projections/>
+Data Source: <http://ctsdc.uconn.edu/2015_2040_projections/> 
 
 ## License MIT
 
