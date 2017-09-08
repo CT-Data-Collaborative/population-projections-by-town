@@ -128,6 +128,11 @@
       "value": "",
       "type": "string"
     },
+    "socrata_dataset_name": {
+      "ckan_name": "Socrata Dataset Name",
+      "value": "",
+      "type": "string"
+    }, 
     "domain": {
       "ckan_name": "Domain",
       "value": "Demographics",
